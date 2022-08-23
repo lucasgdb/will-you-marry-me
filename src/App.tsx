@@ -11,35 +11,13 @@ function App() {
   const [hidden, setHidden] = useState(false);
 
   function handleMoveButton() {
-    const acceptButtonWidth = acceptButtonRef.current!.clientWidth;
-    const acceptButtonHeight = acceptButtonRef.current!.clientHeight;
-    const acceptButtonXPosition = acceptButtonRef.current!.offsetLeft;
-    const acceptButtonYPosition = acceptButtonRef.current!.offsetTop;
-
     const rejectButtonWidth = rejectButtonRef.current!.clientWidth;
     const rejectButtonHeight = rejectButtonRef.current!.clientHeight;
-    const rejectButtonXPosition = rejectButtonRef.current!.offsetLeft;
-    const rejectButtonYPosition = rejectButtonRef.current!.offsetTop;
 
     let { x, y } = getRandomLocation({
       buttonWidth: rejectButtonWidth,
       buttonHeight: rejectButtonHeight,
     });
-
-    while (
-      (x > acceptButtonXPosition - acceptButtonWidth && x < acceptButtonXPosition + acceptButtonWidth) ||
-      (y > acceptButtonYPosition - acceptButtonHeight && y < acceptButtonYPosition + acceptButtonHeight) ||
-      (x > rejectButtonXPosition - rejectButtonWidth && x < rejectButtonXPosition + rejectButtonWidth) ||
-      (y > rejectButtonYPosition - rejectButtonHeight && y < rejectButtonYPosition + rejectButtonHeight)
-    ) {
-      let { x: newX, y: newY } = getRandomLocation({
-        buttonWidth: rejectButtonRef.current!.clientWidth,
-        buttonHeight: rejectButtonRef.current!.clientHeight,
-      });
-
-      x = newX;
-      y = newY;
-    }
 
     rejectButtonRef.current!.style.left = `${x}px`;
     rejectButtonRef.current!.style.top = `${y}px`;
