@@ -12,6 +12,10 @@
   src: url(assets/fonts/danger.otf);
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: rgb(107, 107, 107);
