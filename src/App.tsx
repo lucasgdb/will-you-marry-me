@@ -26,20 +26,11 @@ function App() {
       buttonHeight: rejectButtonHeight,
     });
 
-    const isInsideOfAcceptButtonHorizontally =
-      x > acceptButtonXPosition - acceptButtonWidth && x < acceptButtonXPosition + acceptButtonWidth;
-    const isInsideOfAcceptButtonVertically =
-      y > acceptButtonYPosition - acceptButtonHeight && y < acceptButtonYPosition + acceptButtonHeight;
-    const isInsideOfRejectButtonHorizontally =
-      x > rejectButtonXPosition - rejectButtonWidth && x < rejectButtonXPosition + rejectButtonWidth;
-    const isInsideOfRejectButtonVertically =
-      y > rejectButtonYPosition - rejectButtonHeight && y < rejectButtonYPosition + rejectButtonHeight;
-
     while (
-      isInsideOfAcceptButtonHorizontally ||
-      isInsideOfAcceptButtonVertically ||
-      isInsideOfRejectButtonHorizontally ||
-      isInsideOfRejectButtonVertically
+      (x > acceptButtonXPosition - acceptButtonWidth && x < acceptButtonXPosition + acceptButtonWidth) ||
+      (y > acceptButtonYPosition - acceptButtonHeight && y < acceptButtonYPosition + acceptButtonHeight) ||
+      (x > rejectButtonXPosition - rejectButtonWidth && x < rejectButtonXPosition + rejectButtonWidth) ||
+      (y > rejectButtonYPosition - rejectButtonHeight && y < rejectButtonYPosition + rejectButtonHeight)
     ) {
       let { x: newX, y: newY } = getRandomLocation({
         buttonWidth: rejectButtonRef.current!.clientWidth,
