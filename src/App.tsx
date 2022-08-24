@@ -39,7 +39,7 @@ function App() {
           <h1 className="font-apricot text-3xl text-center">Namora comigo? &gt;&lt;</h1>
 
           <AcceptButton onClick={handleAccept} ref={acceptButtonRef} />
-          <RejectButton onMouseEnter={handleMoveButton} onClick={handleMoveButton} ref={rejectButtonRef} />
+          <RejectButton onMouseMove={handleMoveButton} onClick={handleMoveButton} ref={rejectButtonRef} />
         </div>
       )}
     </div>
