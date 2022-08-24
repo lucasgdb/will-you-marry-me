@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 
-import us from './assets/us.jpg';
+import AcceptButton from './components/AcceptButton';
+import LoveImage from './components/LoveImage';
+import RejectButton from './components/RejectButton';
 import getRandomLocation from './utils/getRandomLocation';
 
 function App() {
@@ -30,33 +32,14 @@ function App() {
 
   return (
     <div className="w-[100vw] h-[100vh] pt-10">
-      <img
-        src={us}
-        className={`rounded transition-opacity duration-500 w-[260px] absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 ${
-          accepted ? 'opacity-100' : 'opacity-0'
-        }`}
-      />
+      <LoveImage hidden={!accepted} />
 
       {!hidden && (
         <div className={`transition-opacity duration-300 ${accepted ? 'opacity-0' : 'opacity-100'}`}>
           <h1 className="font-apricot text-3xl text-center">Namora comigo? &gt;&lt;</h1>
 
-          <button
-            onClick={handleAccept}
-            className="bg-gradient-to-b from-pink-400 to-pink-600 p-2 rounded text-white text-2xl font-apricot transition ease-in-out hover:scale-110 absolute left-[calc(50%_-_45px)] translate-x-[-50%] top-1/2 translate-y-[-50%]"
-            ref={acceptButtonRef}
-          >
-            Aceitar
-          </button>
-
-          <button
-            className="bg-black p-2 rounded text-white text-2xl font-danger whitespace-nowrap cursor-default transition-all duration-[0.08s] absolute left-[calc(50%_+_65px)] -translate-x-1/2 top-1/2 -translate-y-1/2"
-            onMouseEnter={handleMoveButton}
-            onClick={handleMoveButton}
-            ref={rejectButtonRef}
-          >
-            Recusar
-          </button>
+          <AcceptButton onClick={handleAccept} ref={acceptButtonRef} />
+          <RejectButton onMouseEnter={handleMoveButton} onClick={handleMoveButton} ref={rejectButtonRef} />
         </div>
       )}
     </div>
