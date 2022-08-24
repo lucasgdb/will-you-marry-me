@@ -14,7 +14,7 @@ function App() {
     const rejectButtonWidth = rejectButtonRef.current!.clientWidth;
     const rejectButtonHeight = rejectButtonRef.current!.clientHeight;
 
-    let { x, y } = getRandomLocation({
+    const { x, y } = getRandomLocation({
       buttonWidth: rejectButtonWidth,
       buttonHeight: rejectButtonHeight,
     });
