@@ -21,6 +21,9 @@ function App() {
       buttonHeight: rejectButtonHeight,
     });
 
+    acceptButtonRef.current!.style.left = `${rejectButtonRef.current!.offsetLeft}px`;
+    acceptButtonRef.current!.style.top = `${rejectButtonRef.current!.offsetTop}px`;
+
     rejectButtonRef.current!.style.left = `${x}px`;
     rejectButtonRef.current!.style.top = `${y}px`;
   }
